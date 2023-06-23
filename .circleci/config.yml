@@ -1,7 +1,8 @@
-version: 2
+version: 2.1
+
 orbs:
-  android: circleci/android@1.0.3
-  flutter-orb: tadashi0713/flutter-orb@1.2.0
+  flutter-orb: circleci/flutter@1.1.0
+
 jobs:
   build:
     docker:
@@ -10,7 +11,6 @@ jobs:
       - checkout
       - flutter-orb/install_sdk_and_pub:
           flutter_version: 3.10.1
-          app-dir: ./app
       - run: echo "Clean"
       - run: flutter doctor
       - run: flutter clean
