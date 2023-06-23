@@ -1,3 +1,10 @@
+# This file defines a workflow that analyzes your codebase and intelligently creates a
+# new configuration file with build/test/deploy jobs that are specific to your setup
+version: 2.1
+setup: true
+orbs:
+  continuation: circleci/continuation@0.1.2
+
 jobs:
   build-android:
     executor: android
@@ -11,18 +18,8 @@ jobs:
       - store_artifacts:
           path: build/app/outputs/flutter-apk/
 
-orbs:
-  flutter-orb: circleci/flutter@1.1.0
-
-version: 2.1
-
 workflows:
-  main:
+  analyze-my-code:
     jobs:
-      - tests
-      - build-android:
-          requires:
-            - tests
-      - build-ios:
-          requires:
-            - tests
+      - build-android
+
