@@ -1,4 +1,7 @@
 version: 2
+orbs:
+  android: circleci/android@1.0.3
+  flutter-orb: tadashi0713/flutter-orb@1.2.0
 jobs:
   build:
     docker:
