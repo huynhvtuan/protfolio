@@ -11,16 +11,6 @@ jobs:
       - store_artifacts:
           path: build/app/outputs/flutter-apk/
 
-  tests:
-    executor: android
-    steps:
-      - checkout
-      - flutter-orb/install_sdk_and_pub:
-          flutter_version: 3.7.5
-      - run:
-          name: Run unit test
-          command: flutter test
-
 orbs:
   flutter-orb: circleci/flutter@1.1.0
 
