@@ -1,14 +1,3 @@
-executors:
-  android:
-    docker:
-      - image: cimg/android:2022.06
-  default:
-    docker:
-      - image: cimg/base:stable
-  macos:
-    macos:
-      xcode: 14.2.0
-
 jobs:
   build-android:
     executor: android
@@ -18,7 +7,7 @@ jobs:
           flutter_version: 3.7.5
       - run:
           name: Build APK
-          command: flutter build apk --flavor=dev -t lib/app/main_dev.dart
+          command: flutter build apk --release
       - store_artifacts:
           path: build/app/outputs/flutter-apk/
 
